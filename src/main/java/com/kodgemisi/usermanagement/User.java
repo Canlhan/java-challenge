@@ -21,7 +21,7 @@ public class User {
 
 	public User(Long id, Profile profile, int age, boolean verified, Role role, Instant createdAt) {
 		this.id = id;
-		this.profile = profile;
+		 setProfile(profile);
 		this.age = age;
 		this.verified = verified;
 		this.role = role;
@@ -57,6 +57,7 @@ public class User {
 	}
 
 	public boolean isVerified() {
+
 		return verified;
 	}
 

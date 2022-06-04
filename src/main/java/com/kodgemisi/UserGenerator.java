@@ -24,31 +24,47 @@ public class UserGenerator {
 
 	public static void generate(final UserDao userDao) {
 
-		final String avatarUrl = "https://picsum.photos/200";
-		for (int i = 0; i < USER_COUNT; i++) {
+			final String avatarUrl = "https://picsum.photos/200";
 
-			final Set<Phone> phones = new HashSet<>();
-			for (int j = 0; j < random(3); j++) {
-				phones.add(new Phone(randomPhoneNumber()));
+			for (int i = 0; i < USER_COUNT; i++) {
+
+				final Set<Phone> phones = new HashSet<>();
+				try{
+					for (int j = 0; j < random(3); j++) {
+
+
+						Phone phone=new Phone(randomPhoneNumber());
+						phones.add(phone);
+					}
+					final Phone primaryPhone = phones.stream().findFirst().get();
+					final Set<Email> emails = new HashSet<>();
+					for (int j = 0; j < random(5); j++) {
+						emails.add(new Email(faker.internet().emailAddress()));
+					}
+					final Email primaryEmail = emails.stream().findFirst().get();
+
+					final Language lang = random(2) == 2 ? Language.EN : Language.TR;
+					final Role role = random(2) == 2 ? Role.USER : Role.ADMIN;
+					final boolean verified = random(2) == 2;
+
+					final Profile profile = new Profile(avatarUrl, faker.address().fullAddress(), primaryPhone, primaryEmail, phones, emails, lang);
+					final User user = new User(null, profile, random(93), verified, role, Instant.now());
+					userDao.create(user);
+
+				}catch (IllegalArgumentException e){
+
+					System.out.println(e.getLocalizedMessage());
+				}
+
+
+
+
+
+
+
 			}
-			final Phone primaryPhone = phones.stream().findFirst().get();
 
-			final Set<Email> emails = new HashSet<>();
-			for (int j = 0; j < random(5); j++) {
-				emails.add(new Email(faker.internet().emailAddress()));
-			}
-			final Email primaryEmail = emails.stream().findFirst().get();
 
-			final Language lang = random(2) == 2 ? Language.EN : Language.TR;
-			final Role role = random(2) == 2 ? Role.USER : Role.ADMIN;
-			final boolean verified = random(2) == 2;
-
-			final Profile profile = new Profile(avatarUrl, faker.address().fullAddress(), primaryPhone, primaryEmail, phones, emails, lang);
-
-			final User user = new User(null, profile, random(93), verified, role, Instant.now());
-
-			userDao.create(user);
-		}
 	}
 
 	private static int random(int limitIncluding) {

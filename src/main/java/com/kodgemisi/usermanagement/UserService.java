@@ -28,6 +28,7 @@ public class UserService implements UserApi {
 
 	@Override
 	public List<User> list() {
+
 		return userDao.findAll();
 	}
 

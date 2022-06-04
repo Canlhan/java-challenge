@@ -7,12 +7,35 @@ public class Phone implements CharSequence {
 
 	private final String phoneNumber;
 
+
 	public Phone(String phoneNumber) {
-		this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
+
+			validate(phoneNumber);
+			this.phoneNumber=phoneNumber;
+
+	}
+
+	public void validate(String phoneNum){
+
+		if(phoneNum.charAt(0)!='+' && phoneNum.length()<5){
+
+			throw new IllegalArgumentException("telefon numarası uygun değil");
+		}else{
+			if(phoneNum.subSequence(0,3)!="+90" && phoneNum.length()!=13)
+			{
+				throw new IllegalArgumentException("uzunluk en az 13 karakter olmalı ya da başı +90 olmamalı");
+			}
+		}
+
+
+
 	}
 
 	public String number() {
+
+
 		return phoneNumber;
+
 	}
 
 	@Override
@@ -22,11 +45,13 @@ public class Phone implements CharSequence {
 
 	@Override
 	public char charAt(int index) {
+
 		return phoneNumber.charAt(index);
 	}
 
 	@Override
 	public CharSequence subSequence(int start, int end) {
+
 		return phoneNumber.subSequence(start, end);
 	}
 
