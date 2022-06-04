@@ -7,22 +7,25 @@ public class Email implements CharSequence {
 
 	public final String email;
 
+
 	public final boolean verified;
 
 	public Email(String email) {
 
+		this(email,false);
 		validate(email);
 
-		this.email = email;
-		this.verified = false;
+
 	}
 
 	public Email(String email, boolean verified) {
 
-		validate(email);
 
-		this.email = email;
+		this.email=email;
 		this.verified = verified;
+
+
+
 	}
 
 	private static void validate(String email) {
