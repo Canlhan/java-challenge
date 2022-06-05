@@ -17,7 +17,7 @@ public class Phone implements CharSequence {
 
 	public void validate(String phoneNum){
 
-		if(phoneNum==null || phoneNum==""){
+		if(phoneNum==null || phoneNum.equals("")){
 			throw new IllegalArgumentException(" it  shouldnt null or empty");
 		}
 		if(phoneNum.charAt(0)!='+' && phoneNum.length()<5){
