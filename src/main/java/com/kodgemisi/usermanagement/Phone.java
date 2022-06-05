@@ -29,7 +29,9 @@ public class Phone implements CharSequence {
 
 
 			}else{
-				throw new IllegalArgumentException("telefon numarası uygun değil");
+				if(!phoneNum.equals("112") && !phoneNum.equals("911")){
+					throw new IllegalArgumentException("it is not appropriate");
+				}
 			}
 		}
 
