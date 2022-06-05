@@ -22,16 +22,18 @@ public class Phone implements CharSequence {
 		}
 		else{
 			if(phoneNum.charAt(0)=='+' && phoneNum.length()>=5){
-				if(phoneNum.subSequence(0,3)!="+90" && phoneNum.length()!=13)
+				if(phoneNum.subSequence(0,3)=="+90" && phoneNum.length()!=13)
 				{
 					throw new IllegalArgumentException("uzunluk en az 13 karakter olmalı ya da başı +90 olmamalı");
 				}
+
 
 
 			}else{
 				if(!phoneNum.equals("112") && !phoneNum.equals("911")){
 					throw new IllegalArgumentException("it is not appropriate");
 				}
+
 			}
 		}
 
