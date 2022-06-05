@@ -35,8 +35,11 @@ public class UserService implements UserApi {
 	@Override
 	public User update(User user)
 	{
-			user.getProfile().setAddress("Florida, U.S");
-		return userDao.update(user);
+		Optional<User> userUpdated=	userDao.find(user.getId());
+		userUpdated.get().setProfile(user.getProfile());
+
+
+		return userDao.update(userUpdated.get());
 	}
 
 	@Override
