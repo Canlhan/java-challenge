@@ -21,7 +21,7 @@ public class Profile {
 	public Profile(String avatarUrl, String address, Phone primaryPhone, Email primaryEmail, Set<Phone> phones, Set<Email> emails,
 			Language language) {
 		this.avatarUrl = avatarUrl;
-		this.address = address;
+		setAddress(address);
 		 setPrimaryPhone(primaryPhone);
 		this.primaryEmail = primaryEmail;
 		this.phones = phones;

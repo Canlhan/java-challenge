@@ -49,6 +49,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User update(User user) {
+
 		if (user == null) {
 			throw new IllegalArgumentException("User cannot be null!");
 		}

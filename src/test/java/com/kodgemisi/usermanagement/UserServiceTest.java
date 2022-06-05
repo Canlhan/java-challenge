@@ -113,7 +113,9 @@ class UserServiceTest {
 
         assertEquals(raffaello.getId(), updatedRafaello.getId());
         assertEquals(raffaello.getProfile().getAvatarUrl(), updatedRafaello.getProfile().getAvatarUrl());
+
         assertEquals(raffaello.getProfile().getAddress(), updatedRafaello.getProfile().getAddress());
+
         assertEquals(raffaello.getProfile().getPrimaryPhone(), updatedRafaello.getProfile().getPrimaryPhone());
         assertEquals(raffaello.getProfile().getPrimaryEmail(), updatedRafaello.getProfile().getPrimaryEmail());
         assertEquals(raffaello.getProfile().getPhones(), updatedRafaello.getProfile().getPhones());

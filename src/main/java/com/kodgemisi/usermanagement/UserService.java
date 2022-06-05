@@ -33,7 +33,9 @@ public class UserService implements UserApi {
 	}
 
 	@Override
-	public User update(User user) {
+	public User update(User user)
+	{
+
 		return userDao.update(user);
 	}
 
