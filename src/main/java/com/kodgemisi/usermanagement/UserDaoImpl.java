@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 
 	private final AtomicLong userIdSequence = new AtomicLong(1L);
 
-	private  Map<Long, User> userMap = new ConcurrentHashMap<>();
+	private final Map<Long, User> userMap = new ConcurrentHashMap<>();
 
 	@Override
 	public User create(User user) {
@@ -59,7 +59,7 @@ public class UserDaoImpl implements UserDao {
 			throw new IllegalArgumentException("You can only update existing users (users with id). This user has no id");
 		}
 
-		return userMap.put(user.getId(), user);
+		return userMap.replace(user.getId(), user);
 	}
 
 	@Override
