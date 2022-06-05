@@ -38,7 +38,9 @@ public class UserService implements UserApi {
 		Optional<User> userUpdated=	userDao.find(user.getId());
 
 		userUpdated.get().setProfile(user.getProfile());
-
+		userUpdated.get().setAge(user.getAge());
+		userUpdated.get().setRole(user.getRole());
+		userUpdated.get().verify();
 
 		return userDao.update(userUpdated.get());
 	}
