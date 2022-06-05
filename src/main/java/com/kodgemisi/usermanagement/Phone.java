@@ -23,9 +23,16 @@ public class Phone implements CharSequence {
 		else{
 			//+9012
 			if(phoneNum.charAt(0)=='+' && phoneNum.length()>=5){
-				if(phoneNum.subSequence(0,3)=="+90" && phoneNum.length()!=13)
+
+				if(phoneNum.subSequence(0,3).equals("+90"))
 				{
-					throw new IllegalArgumentException(" should be exactly 13-char long when it starts with `+90`");
+
+
+					if(phoneNum.length()!=13){
+
+						throw new IllegalArgumentException(" should be exactly 13-char long when it starts with `+90`");
+					}
+
 				}
 
 
