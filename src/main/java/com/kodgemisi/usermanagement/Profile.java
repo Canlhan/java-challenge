@@ -22,7 +22,7 @@ public class Profile {
 			Language language) {
 		this.avatarUrl = avatarUrl;
 		setAddress(address);
-		 setPrimaryPhone(primaryPhone);
+		setPrimaryPhone(primaryPhone);
 		this.primaryEmail = primaryEmail;
 		this.phones = phones;
 		this.emails = emails;

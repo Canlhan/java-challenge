@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 
 	private final AtomicLong userIdSequence = new AtomicLong(1L);
 
-	private final Map<Long, User> userMap = new ConcurrentHashMap<>();
+	private  Map<Long, User> userMap = new ConcurrentHashMap<>();
 
 	@Override
 	public User create(User user) {
@@ -44,6 +44,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> findAll() {
+
 		return userMap.values().stream().sorted(Comparator.comparingLong(User::getId)).collect(Collectors.toList());
 	}
 
