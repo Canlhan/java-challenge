@@ -20,15 +20,19 @@ public class Phone implements CharSequence {
 		if(phoneNum==null || phoneNum.equals("")){
 			throw new IllegalArgumentException(" it  shouldnt null or empty");
 		}
-		if(phoneNum.charAt(0)!='+' && phoneNum.length()<5){
+		else{
+			if(phoneNum.charAt(0)=='+' && phoneNum.length()>=5){
+				if(phoneNum.subSequence(0,3)!="+90" && phoneNum.length()!=13)
+				{
+					throw new IllegalArgumentException("uzunluk en az 13 karakter olmalı ya da başı +90 olmamalı");
+				}
 
-			throw new IllegalArgumentException("telefon numarası uygun değil");
-		}else{
-			if(phoneNum.subSequence(0,3)!="+90" && phoneNum.length()!=13)
-			{
-				throw new IllegalArgumentException("uzunluk en az 13 karakter olmalı ya da başı +90 olmamalı");
+
+			}else{
+				throw new IllegalArgumentException("telefon numarası uygun değil");
 			}
 		}
+
 
 
 
