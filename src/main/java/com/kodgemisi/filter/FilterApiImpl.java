@@ -1,5 +1,6 @@
 package com.kodgemisi.filter;
 
+import com.kodgemisi.usermanagement.Role;
 import com.kodgemisi.usermanagement.User;
 import com.kodgemisi.usermanagement.UserService;
 
@@ -18,8 +19,8 @@ public class FilterApiImpl implements FilterApi {
 	public List<User> unverifiedUnder18() {
 		//FIXME currently returns all the users unfiltered, you should fix this method
 		// If you are not sure how to implement this method, please refer to the Javadoc or the FilterApi interface
-		System.out.println(userService.list().stream().filter(user -> user.getAge()<18).toList().size());
-		return userService.list().stream().filter(user -> user.getAge()<18).toList();
+
+		return userService.list().stream().filter(user -> user.getAge()<18 && user.getRole()== Role.USER).toList();
 	}
 
 	@Override
