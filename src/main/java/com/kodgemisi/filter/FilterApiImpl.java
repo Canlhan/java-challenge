@@ -18,7 +18,7 @@ public class FilterApiImpl implements FilterApi {
 		//FIXME currently returns all the users unfiltered, you should fix this method
 		// If you are not sure how to implement this method, please refer to the Javadoc or the FilterApi interface
 
-		return userService.list().stream().filter(user -> user.getAge()>=18).toList();
+		return userService.list().stream().filter(user -> user.getAge()<18).toList();
 	}
 
 	@Override
