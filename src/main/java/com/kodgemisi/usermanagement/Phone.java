@@ -21,10 +21,11 @@ public class Phone implements CharSequence {
 			throw new IllegalArgumentException(" it  shouldnt null or empty");
 		}
 		else{
+			//+9012
 			if(phoneNum.charAt(0)=='+' && phoneNum.length()>=5){
 				if(phoneNum.subSequence(0,3)=="+90" && phoneNum.length()!=13)
 				{
-					throw new IllegalArgumentException("uzunluk en az 13 karakter olmalı ya da başı +90 olmamalı");
+					throw new IllegalArgumentException(" should be exactly 13-char long when it starts with `+90`");
 				}
 
 
