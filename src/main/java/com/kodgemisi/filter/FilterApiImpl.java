@@ -1,5 +1,6 @@
 package com.kodgemisi.filter;
 
+import com.kodgemisi.usermanagement.Language;
 import com.kodgemisi.usermanagement.Role;
 import com.kodgemisi.usermanagement.User;
 import com.kodgemisi.usermanagement.UserService;
@@ -28,6 +29,6 @@ public class FilterApiImpl implements FilterApi {
 		//FIXME currently returns all the users unfiltered, you should fix this method
 		// If you are not sure how to implement this method, please refer to the Javadoc or the FilterApi interface
 
-		return userService.list().stream().filter(User::isVerified).toList();
+		return userService.list().stream().filter(user -> user.isVerified() && user.getProfile().getLanguage()== Language.TR).toList();
 	}
 }
