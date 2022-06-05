@@ -22,7 +22,7 @@ public class User {
 	public User(Long id, Profile profile, int age, boolean verified, Role role, Instant createdAt) {
 		this.id = id;
 		 setProfile(profile);
-		this.age = age;
+		setAge(age);
 		this.verified = verified;
 		this.role = role;
 		this.createdAt = createdAt;

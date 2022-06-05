@@ -16,6 +16,6 @@ public class App {
 		UserGenerator.generate(userDao);
 		logger.info("Generating users: DONE.");
 		logger.info("Listing first 100 users:");
-		userDao.findAll().stream().limit(100).map(User::toString).forEach(logger::info);
+		userDao.findAll().stream().filter(user -> user.getAge()>=18).limit(100).map(User::toString).forEach(logger::info);
 	}
 }
