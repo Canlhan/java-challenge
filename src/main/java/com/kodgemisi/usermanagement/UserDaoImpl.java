@@ -59,7 +59,7 @@ public class UserDaoImpl implements UserDao {
 			throw new IllegalArgumentException("You can only update existing users (users with id). This user has no id");
 		}
 
-		return userMap.replace(user.getId(), user);
+		return userMap.put(user.getId(), user);
 	}
 
 	@Override
